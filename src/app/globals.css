@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Geist Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --color-canvas: #080b16;
+  --color-surface: #0d1220;
+  --color-raised: #131a2c;
+  --color-charcoal: #181c28;
+  --color-line: #222a40;
+  --color-line-strong: #323c58;
+  --color-fg: #e8ebf5;
+  --color-muted: #8f98b3;
+  --color-faint: #5f6884;
+  --color-brand: #5b8cff;
+  --color-brand-strong: #3f6fe6;
+  --color-accent: #9577ff;
+  --color-ok: #3ccf9b;
+  --color-warn: #f2b84b;
+  --color-bad: #f27a7a;
+}
+
+:root { color-scheme: dark; }
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--color-canvas);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.bg-grid {
+  background-image: radial-gradient(circle at 1px 1px, rgb(255 255 255 / 0.06) 1px, transparent 0);
+  background-size: 28px 28px;
+}
+
+:focus-visible { outline: 2px solid var(--color-brand); outline-offset: 2px; }
+
+@keyframes pulse-ring { 0%,100% { opacity: .5 } 50% { opacity: 1 } }
+.animate-working { animation: pulse-ring 1.2s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .animate-working { animation: none; }
+  * { transition-duration: 0.01ms !important; }
+}
+
+::selection { background: rgb(91 140 255 / 0.35); }
